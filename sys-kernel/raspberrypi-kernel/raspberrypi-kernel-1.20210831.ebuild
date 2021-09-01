@@ -3,14 +3,12 @@
 
 EAPI=7
 
-RPV="${PV/_p/-}"
-
 DESCRIPTION="Kernel for Raspberry Pi"
 HOMEPAGE="https://github.com/raspberrypi/linux"
-SRC_URI="https://github.com/raspberrypi/linux/archive/raspberrypi-kernel_${RPV}.tar.gz"
+SRC_URI="https://github.com/raspberrypi/linux/archive/${PV}.tar.gz"
 
 LICENSE="GPL-2"
-SLOT="${RPV}"
+SLOT="${PV}"
 KEYWORDS="~arm64"
 IUSE=""
 
@@ -21,8 +19,8 @@ BDEPEND=""
 S="${WORKDIR}"
 
 src_install() {
-	destdir="${D}/usr/src/raspberrypi-kernel-${RPV}"
+	destdir="${D}/usr/src/raspberrypi-kernel-${PV}"
 	mkdir -p "$destdir"
-	cp -r "${WORKDIR}/linux-raspberrypi-kernel_${RPV}/." "$destdir"
+	cp -r "${WORKDIR}/linux-${PV}/." "$destdir"
 }
 
